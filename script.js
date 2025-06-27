@@ -23,14 +23,14 @@ if (window.location.pathname.endsWith('finder.html')) {
 
         // Custom toilet icon
         const toiletIcon = L.icon({
-            iconUrl: 'toilet.png',
+            iconUrl: 'https://icon2.cleanpng.com/20180719/gus/ab5f9815d6fae731d31c800213f1d12a.webp',
             iconSize: [32, 32],
             iconAnchor: [16, 32],
             popupAnchor: [0, -32]
         });
         // Custom user icon
         const userIcon = L.icon({
-            iconUrl: 'https://img.icons8.com/fluency/48/marker-storm.png',
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/159/159846.png',
             iconSize: [32, 32],
             iconAnchor: [16, 32],
             popupAnchor: [0, -32]
