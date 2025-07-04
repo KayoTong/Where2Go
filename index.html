@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where2Go - Find the Nearest Restroom</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #map { height: 500px; width: 100%; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="https://img.icons8.com/ios-filled/48/267373/toilet.png" alt="Toilet Icon" style="vertical-align:middle;width:32px;height:32px;margin-right:8px;">Where2Go</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="finder.html">Finder</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="finder-layout">
+        <div class="main-flex-container">
+            <div class="sidebar">
+                <h2>Restroom Finder</h2>
+                <input type="text" id="address-input" placeholder="Enter an address or location...">
+                <button id="search-btn">Search</button>
+                <button id="myloc-btn">Use My Location</button>
+                <div id="restroom-list"></div>
+            </div>
+            
+            <div class="map-and-directions">
+                <div id="map"></div>
+                <div id="directions-sidebar">
+                    <h3>Directions</h3>
+                    <div id="directions-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Where2Go. All rights reserved.</p>
+    </footer>
+    
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places,geometry"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
