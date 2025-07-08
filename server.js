@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Serve static files from the current directory
+app.use(express.static(__dirname));
+
 // Sample restroom data
 const restrooms = [
   {
@@ -38,10 +41,16 @@ app.get('/api/restrooms', (req, res) => {
   res.json(restrooms);
 });
 
+// Serve the finder.html file
+app.get('/finder', (req, res) => {
+  res.sendFile(__dirname + '/finder.html');
+});
+
 app.get('/', (req, res) => {
-  res.send('Where2Go API is running!');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Finder page available at http://localhost:${PORT}/finder`);
 }); 
