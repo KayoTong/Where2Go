@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Where2Go - Restroom Finder</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="finder.css">
 </head>
 <body>
+    <nav>
+        <div class="logo">
+            <div class="logo-group">
+                <img src="https://www.freeiconspng.com/thumbs/restroom-icon/man-and-women-restroom-icon-12.png" alt="Toilet Icon" />
+                <span>Where2Go</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
     <div class="finder-layout">
         <div class="main-flex-container">
             <div class="sidebar">
@@ -35,10 +48,10 @@
             <div class="map-and-directions">
                 <div id="map" style="height: 500px; width: 100%;"></div>
             </div>
-        </div>
-        <div id="directions-sidebar">
-            <h3>Directions</h3>
-            <ul id="directions-list"></ul>
+            <div id="directions-sidebar">
+                <h3>Directions</h3>
+                <ul id="directions-list"></ul>
+            </div>
         </div>
     </div>
     <footer>
@@ -47,4 +60,4 @@
     <script src="script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC4cfV8vdM3kOdqon_XJnWLCG1WXbBkQg"></script>
 </body>
-</html> 
+</html>
