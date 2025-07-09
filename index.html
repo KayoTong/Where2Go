@@ -3,48 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Where2Go - Restroom Finder</title>
+    <title>Where2Go - Find the Nearest Restroom</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
-    <div class="finder-layout">
-        <div class="main-flex-container">
-            <div class="sidebar">
-                <h2>Restroom Finder</h2>
-                <img src="toilet.png" alt="Restroom Icon" style="width:48px;display:block;margin:0 auto 16px;">
-                <input id="address-input" type="text" placeholder="Enter an address or location">
-                <button id="search-btn">Search</button>
-                <button id="myloc-btn">Use My Location</button>
-                <div style="margin: 12px 0;">
-                    <label for="distance-filter">Distance:</label>
-                    <select id="distance-filter">
-                        <option value="1609">1 mile</option>
-                        <option value="3218">2 miles</option>
-                        <option value="8047">5 miles</option>
-                    </select>
-                </div>
-                <div style="margin-bottom: 12px;">
-                    <label for="accessible-filter">Wheelchair Accessible:</label>
-                    <select id="accessible-filter">
-                        <option value="any">Any</option>
-                        <option value="yes">Yes</option>
-                    </select>
-                </div>
-                <div id="restroom-list"></div>
+    <nav>
+        <div class="logo">
+            <div class="logo-group">
+              <img src="https://www.freeiconspng.com/thumbs/restroom-icon/man-and-women-restroom-icon-12.png" alt="Toilet Icon">
+              <span>Where2Go</span>
             </div>
-            <div class="map-and-directions">
-                <div id="map" style="height: 500px; width: 100%;"></div>
-            </div>
-        </div>
-        <div id="directions-sidebar">
-            <h3>Directions</h3>
-            <ul id="directions-list"></ul>
-        </div>
-    </div>
+          </div>
+           
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero" id="home">
+  <div class="slider">
+    <img src="https://images.ctfassets.net/ypfe9l9zihcg/4W1Dgfj6QECIq4Oey0IQMi/4c044358096870a234a1ecd5f84f5d39/Forest-Hills-what-to-expect-1.jpg" alt="Forest Hill" class="slide active">
+    <img src="https://media.istockphoto.com/id/540718910/photo/williamsburg-street-scene-in-brooklyn-new-york-city.jpg?s=612x612&w=0&k=20&c=w3_jyFcS6y_-FXWYISiOgYLBIT_B-yNmOLk59OCROno=" alt="BK Bridge" class="slide">
+    <img src="https://images.ctfassets.net/1aemqu6a6t65/6yhRUmlUlQIu7R7vpwjY8x/fdb889151c8d0af07e7876f0a9dde49a/Flushing-Queens-NYC-Photo-Julienne-Schaer.jpg" alt="Flushing Queens" class="slide">
+    <img src="https://i.insider.com/5dc588fe695b587d670d3d4d?width=800&format=jpeg&auto=webp" alt="Insider NYC" class="slide">
+    <img src="https://media.timeout.com/images/106160192/image.jpg" alt="Time Out NYC" class="slide">
+    <img src="https://static01.nyt.com/images/2018/07/15/realestate/15LIVING-IN-INWOOD-SUB/15LIVING-IN-INWOOD-SUB-superJumbo-v2.jpg?quality=75&auto=webp&disable=upscale" alt="Inwood NYC" class="slide">
+    <img src="https://static01.nyt.com/images/2014/07/27/realestate/20140727-LIVING-slide-28V2/20140727-LIVING-slide-28V2-superJumbo.jpg" alt="Living NYC 2014" class="slide">
+    <img src="https://media.timeout.com/images/105222275/image.jpg" alt="Timeout NYC 2" class="slide">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/USA-NYC-Koreatown99.jpg" alt="Koreatown NYC" class="slide">
+    <img src="https://media.istockphoto.com/id/186211642/photo/aerial-view-upper-west-side-buildings-central-park-new-york.jpg?s=612x612&w=0&k=20&c=VvMmCr8_XAZAG7sRMFlggeFJPEYsEdL5iu5fuWpTEmM=" alt="Upper West Side Aerial" class="slide">
+    <img src="https://images.ctfassets.net/1aemqu6a6t65/6NhevN98Mz9DW86whLfYnu/496bd79329b991df36089861d596b518/Upper-West-Side-NYC-Lanna-Apisukh-1304.jpg" alt="Upper West Side Street" class="slide">
+  </div>
+  <div class="hero-overlay">
+    <h1>Welcome to Where2Go!</h1>
+    <p>Your solution to finding the nearest restroom when you need it most.</p>
+    <a href="finder.html" class="finder-button">Find a Restroom</a>
+  </div>
+</section>
+    </main>
     <footer>
         <p>&copy; 2024 Where2Go. All rights reserved.</p>
     </footer>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC4cfV8vdM3kOdqon_XJnWLCG1WXbBkQg"></script>
+
+
+    <!-- JS CODE FOR SLIDER-->
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+      
+        function showNextSlide() {
+          slides[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.add('active');
+        }
+      
+        setInterval(showNextSlide, 4000); // 4000ms = 4 seconds per image
+      </script>
+      
+     
 </body>
-</html> 
+</html>
